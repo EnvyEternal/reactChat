@@ -2,7 +2,9 @@ import ACTION_TYPES from "../actions/actionsType";
 
 const initialState = {
    start: false,
-   massages: []
+   massages: [],
+   answer: ['Hi', 'Hello'],
+   indexMas: 0
 };
 
 const chatReducer = (state = initialState, action) => {
@@ -19,9 +21,11 @@ const chatReducer = (state = initialState, action) => {
         }
         case ACTION_TYPES.MASSAGE_ANSWER:{
             const {massages} = state;
-            const {data} = action
+            const {indexMas, answer} = state
             const answerMs = {
-                ...data,
+                ...answer,
+                answer[indexMas],
+                indexMas: indexMas+1
             }
             const ansMs = [...massages, answerMs]
             return {massages: ansMs}
