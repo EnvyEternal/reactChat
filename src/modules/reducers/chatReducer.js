@@ -4,7 +4,7 @@ const initialState = {
    start: false,
    massages: [],
    answer: ['Hi', 'Hello'],
-   indexMas: 0
+   index: 0
 };
 
 const chatReducer = (state = initialState, action) => {
@@ -21,11 +21,11 @@ const chatReducer = (state = initialState, action) => {
         }
         case ACTION_TYPES.MASSAGE_ANSWER:{
             const {massages} = state;
-            const {indexMas, answer} = state
+            const {index, answer} = state
+            const answerMS = answer[index]
             const answerMs = {
-                ...answer,
-                answer[indexMas],
-                indexMas: indexMas+1
+                ...answerMS,
+                index: index+1
             }
             const ansMs = [...massages, answerMs]
             return {massages: ansMs}
