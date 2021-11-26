@@ -1,0 +1,5 @@
+const ACTION_TYPES = {
+    ENTER_MASSAGE: 'ENTER_MASSAGE',
+    MASSAGE_ANSWER: 'MASSAGE_ANSWER'
+  };
+  export default ACTION_TYPES;
