@@ -1,11 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { connect } from 'react-redux'
 
 const MassageList = (props) => {
     const {massages, start} = props
+    const [img, setImg] = useState(0)
+    const mapMs = (massages) => {
+        return(
+            <li>
+                {img} {massages}
+            </li>
+        );
+    };
     return (
         <div>
-            {start === false ? <div>Load</div> : <ul>{massages}</ul>}
+            {start === false ? <div>Load</div> : <ul>{mapMs}</ul>}
         </div>
     )
 }
